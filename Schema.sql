@@ -42,8 +42,8 @@ create table articulos(
     updatedBy varchar(50),
     score int default 0,
     status SMALLINT DEFAULT 1,
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 create table categories(

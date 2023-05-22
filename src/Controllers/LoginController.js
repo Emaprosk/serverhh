@@ -46,7 +46,6 @@ export const ChangePassword = async (req, res) => {
                     : await bcrypt.compare(password, user.password);
             console.log(passwordCorrect);
             if (passwordCorrect) {
-                console.log("entra al if");
                 newPassword = bcrypt.hashSync(newPassword, saltRounds);
                 const user = { password: newPassword };
                 await UserModel.update(user, {
@@ -57,7 +56,6 @@ export const ChangePassword = async (req, res) => {
 
                 res.status(200).json("Constraseña cambiada");
             } else {
-                console.log("entra al else");
                 res.status(201).json("La contraseña actual es incorrecta");
             }
         } catch (error) {
@@ -65,6 +63,21 @@ export const ChangePassword = async (req, res) => {
         }
     } else {
         res.status(202).json("Error credenciales");
+    }
+};
+
+export const GetUserToken = async (req, res) => {
+    let { token } = req.body;
+
+    try {
+        const user = await UserModel.findAll({
+            where: {
+                password: token,
+            },
+        });
+        res.json(user[0]);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
 };
 
