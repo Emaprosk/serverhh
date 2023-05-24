@@ -11,6 +11,8 @@ const ArticleModel = db.define("articulos", {
     updatedBy: { type: DataTypes.STRING },
     score: { type: DataTypes.INTEGER },
     status: { type: DataTypes.INTEGER },
+    createdAt: { type: DataTypes.DATE },
+    updatedAt: { type: DataTypes.DATE },
 });
 
 export default ArticleModel;

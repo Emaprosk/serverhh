@@ -16,6 +16,7 @@ export const getArticle = async (req, res) => {
                 id: req.params.id,
             },
         });
+
         res.json(article[0]);
     } catch (error) {
         res.status(500).json({ message: error.message });
