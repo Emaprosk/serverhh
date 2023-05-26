@@ -11,7 +11,7 @@ import powRoutes from "./src/Routes/routesPermisos.js";
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: true }));
 app.use("/users", userRoutes);
 app.use("/articles", artiRoutes);
 app.use("/comments", comenRoutes);
@@ -30,6 +30,6 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
-app.listen(3050, () => {
+/*app.listen(3050, () => {
     console.log("Servidor corriendo en el puerto 3050");
-});
+});*/
