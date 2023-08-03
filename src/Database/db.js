@@ -1,9 +1,10 @@
 import { Sequelize } from "sequelize";
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER } from "../config.js";
 
-const db = new Sequelize("epiz_34293588_hhdb", "qcsvcFqPEG", "", {
+const db = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     dialect: "mysql",
-    host: "sql303.epizy.com",
-    //port: 3308,
+    host: DB_HOST,
+    port: DB_PORT,
 });
 
 export default db;

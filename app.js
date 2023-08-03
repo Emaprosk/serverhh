@@ -30,6 +30,6 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
-/*app.listen(3050, () => {
+app.listen(3050, () => {
     console.log("Servidor corriendo en el puerto 3050");
-});*/
+});
